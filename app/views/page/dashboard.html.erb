@@ -1,0 +1,35 @@
+<div class="relative min-h-[320px] md:py-16 py-14 border-b border-zinc-200 dark:border-zinc-700/80">
+  <div class="opacity-5 blur-4xl absolute inset-0 w-full h-full
+    bg-gradient-to-r from-white via-primary-500/40 via-[24.79%] to-[#177BB5] z-0"></div>
+
+    <% current_hour = Time.now.hour %>
+    <% greeting = case current_hour
+                when 0..11
+                  "Good morning"
+                when 12..17
+                  "Good afternoon"
+                else
+                  "Good evening"
+                end %>
+
+  <div class="relative z-20">
+    <% if user_signed_in? %>
+      <h2 class="text-4xl font-semibold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight text-center"><%= "#{greeting}, #{current_user.first_name}" %></h2>
+    <% else %>
+      <h2 class="text-4xl font-semibold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight text-center"><%= "#{greeting}" %></h2>
+    <% end %>
+    <p class="font-light font-heading text-center py-4 text-zinc-700 dark:text-zinc-300">Here is what's happening today
+    </p>
+
+  </div>
+</div>
+
+
+
+
+
+<div class="container mx-auto px-4 py-24">
+  <h3 class="mb-6 font-semibold text-zinc-700 dark:text-zinc-50">This is the dashboard section </h3>
+
+
+</div>
