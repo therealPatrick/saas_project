@@ -1,4 +1,4 @@
-<div class="md:flex grid flex-wrap md:w-screen md:h-[calc(100vh-60px)]">
+<div class="md:flex grid flex-wrap md:w-screen md:h-[calc(100vh-60px)] items-center justify-center">
   <div class="md:w-1/2 flex items-center justify-center p-10 md:order-1 order-2">
     <div class="md:w-[400px] w-full">
       <%= link_to root_path, class: "group inline-block mb-6" do %>
@@ -24,7 +24,7 @@
             <%= button_to omniauth_authorize_path(resource_name, provider), class: "btn btn-white w-full", data: { turbo: false } do %>
               <div class="flex items-center space-x-2">
                 <%= inline_svg "omniauth/#{provider.gsub(/\s+/, '').downcase}.svg", class: "w-4 h-4 text-zinc-600 fill-current dark:text-zinc-500" %>
-                <span>"Sign in with <%= OmniAuth::Utils.camelize(provider) %></span>
+                <span>Sign in with <%= OmniAuth::Utils.camelize(provider) %></span>
               </div>
             <% end %>
           <% end %>
@@ -36,6 +36,4 @@
       </div>
     </div>
   </div>
-  <div class="md:w-1/2 md:order-2 order-1 bg-zinc-900 overflow-hidden">
-      </div>
 </div>
