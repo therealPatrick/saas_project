@@ -1,32 +1,42 @@
-<div class="relative min-h-[320px] md:py-16 py-14 border-b border-zinc-200 dark:border-zinc-700/80">
-  <div class="opacity-5 blur-4xl absolute inset-0 w-full h-full
-    bg-gradient-to-r from-white via-primary-500/40 via-[24.79%] to-[#177BB5] z-0"></div>
-
-    <% current_hour = Time.now.hour %>
-    <% greeting = case current_hour
-                when 0..11
-                  "Good morning"
-                when 12..17
-                  "Good afternoon"
-                else
-                  "Good evening"
-                end %>
-  <div class="relative z-20">
-    <% if user_signed_in? %>
-      <h2 class="text-4xl font-semibold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight text-center"><%= "#{greeting}, #{current_user.first_name}" %></h2>
-    <% else %>
-      <h2 class="text-4xl font-semibold font-heading text-zinc-900 dark:text-zinc-100 tracking-tight text-center"><%= "#{greeting}" %></h2>
-    <% end %>
-    <p class="font-light font-heading text-center py-4 text-zinc-700 dark:text-zinc-300">Here is what's happening today
-    </p>
-
-  </div>
-</div>
-
-
-
 <div class="container mx-auto px-4 py-24">
-  <h3 class="mb-6 font-semibold text-zinc-700 dark:text-zinc-50">This is the dashboard section </h3>
 
+  
+  <h3 class="mb-6 font-semibold text-zinc-700 dark:text-zinc-50">This is the dashboard section</h3>
 
+  <!-- Data Sources Section -->
+  <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+    <!-- Left Navigation -->
+    <div class="col-span-1 md:col-span-1 bg-white dark:bg-zinc-800 rounded-lg shadow-md p-6">
+      <ul class="space-y-4">
+        <li><a href="#" class="text-primary-500 font-semibold">Files</a></li>
+        <li><a href="#" class="text-zinc-700 dark:text-zinc-300">Text</a></li>
+        <li><a href="#" class="text-zinc-700 dark:text-zinc-300">Website</a></li>
+        <li><a href="#" class="text-zinc-700 dark:text-zinc-300">Q&A</a></li>
+        <li><a href="#" class="text-zinc-700 dark:text-zinc-300">Notion</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-span-1 md:col-span-3 bg-white dark:bg-zinc-800 rounded-lg shadow-md p-6">
+      <h4 class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Files</h4>
+      <div class="border-dashed border-2 border-zinc-300 dark:border-zinc-700 p-6 rounded-lg text-center">
+        <div class="flex flex-col items-center justify-center h-full">
+          <svg class="w-12 h-12 mb-4 text-zinc-400 dark:text-zinc-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          <p class="text-zinc-700 dark:text-zinc-300 mb-2">Drag & drop files here, or click to select files</p>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400">Supported File Types: .pdf, .doc, .docx, .txt</p>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400">If you are uploading a PDF, make sure you can select/highlight the text.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="col-span-1 md:col-span-1 bg-white dark:bg-zinc-800 rounded-lg shadow-md p-6">
+      <h4 class="text-2xl font-semibold text-zinc-900 dark:text-zinc-100 mb-4">Sources</h4>
+      <p class="text-zinc-700 dark:text-zinc-300 mb-4">Total detected characters</p>
+      <p class="text-3xl font-bold text-primary-500 mb-4">0/400,000</p>
+      <button class="w-full bg-primary-500 text-white py-2 px-4 rounded-md">Create Chatbot</button>
+    </div>
+  </div>
 </div>
