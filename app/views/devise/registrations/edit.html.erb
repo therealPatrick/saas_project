@@ -29,24 +29,7 @@
         <p>Edit your profile details.</p>
       </div>
 
-      <div class="form-group">
-        <%= f.label :avatar, class: "form-label" %>
-
-        <div class="flex items-center space-x-3">
-          <% if f.object.avatar.attached? %>
-            <%= image_tag f.object.avatar, class: "w-14 h-14 rounded-full object-cover border border-zinc-200 pointer-events-none select-none" %>
-          <% else %>
-            <div class="w-14 h-14 flex items-center justify-center rounded-full bg-white border border-zinc-200 pointer-events-none select-none shadow-sm">
-              <%= icon "user", classes: "w-6 h-6 text-zinc-500" %>
-            </div>
-          <% end %>
-
-          <%= f.label :avatar, class: "block" do %>
-            <%= f.file_field :avatar, class: "form-file" %>
-          <% end %>
-        </div>
-
-      </div>
+    
 
       <div class="form-group">
         <%= f.label :name, class: "form-label" %>
