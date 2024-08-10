@@ -1,24 +1,23 @@
-Rails.application.routes.draw do
-	get 'admin/dashboard', to: 'page#dashboard'
-	get 'pricing', to: 'page#pricing'
-	# get 'about', to: 'page#about'
-  if Rails.env.development? || Rails.env.test?
-    mount Railsui::Engine, at: "/railsui"
-  end
 
-  # Inherits from Railsui::PageController#index
-  # To overide, add your own page#index view or change to a new root
-  # Visit the start page for Rails UI any time at /railsui/start
-  # root action: :index, controller: "railsui/page"
-  root action: 'about', to: 'page#about'
+Rails.application.routes.draw do
+  get 'dashboard', to: 'dashboard#index', as: :dashboard
+  resources :projects
+  get 'pricing', to: 'page#pricing'
+  resources :feedbacks
 
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  resources :boards do
+    resources :feedbacks do
+      resources :comments, only: [:create, :destroy]
+      member do
+        post 'upvote'
+        post 'downvote'
+      end
+    end
+  end
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  root action: 'about', to: 'page#about'
+  
+  get 'dashboard', to: 'dashboard#index'
 end

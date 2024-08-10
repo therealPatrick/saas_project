@@ -29,6 +29,9 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 
+gem 'pundit'
+gem 'acts_as_votable'
+
 # Paddle payments
 gem 'paddle_pay'
 
